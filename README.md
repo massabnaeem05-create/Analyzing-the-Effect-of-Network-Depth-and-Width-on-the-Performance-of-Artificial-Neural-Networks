@@ -1,62 +1,74 @@
 # Analyzing the Effect of Network Depth and Width on the Performance of Artificial Neural Networks
 
 ## Overview
-This project investigates how the architecture of an Artificial Neural Network (ANN) influences its performance. The focus is on two key factors:
+This project explores how the architecture of an Artificial Neural Network (ANN) affects its performance. The focus is on two key factors:
 
-- Depth: Number of hidden layers  
-- Width: Number of neurons in each layer  
+- **Depth**: Number of hidden layers  
+- **Width**: Number of neurons in each layer  
 
-Different ANN configurations are tested to analyse how model complexity affects prediction accuracy and learning behaviour.
+Different ANN configurations are tested to analyse how model complexity impacts accuracy, learning behaviour, and generalisation.
 
-## Objective
-- Analyse the impact of network depth and width  
-- Compare shallow and deep neural networks  
-- Study how increasing neurons affects performance  
-- Understand the balance between underfitting and overfitting  
+---
+
+## GitHub Repository
+You can access the full project here:  
+https://github.com/massabnaeem05-create/Analyzing-the-Effect-of-Network-Depth-and-Width-on-the-Performance-of-Artificial-Neural-Networks
+
+---
+
+## Objectives
+- Analyse how network depth affects model performance  
+- Evaluate the impact of width on learning capacity  
+- Compare different ANN configurations  
+- Understand underfitting and overfitting  
+- Identify the best balance between model complexity and performance  
+
+---
 
 ## Dataset
-A custom dataset containing 2000 rows is used.
+A custom dataset (`student_data_2000_unique.csv`) is used.
 
-Features:
+### Features:
 - Study Hours  
 - Attendance  
-- Previous Scores  
+- Previous Score  
 
-Target:
+### Target:
 - Pass / Fail (Binary classification)
 
-## Model Used
-Multilayer Perceptron (MLPClassifier)
+---
 
-Configurations:
-- (3,)
-- (5,)
-- (5,5)
+## Model Used
+Multilayer Perceptron (MLPClassifier) from Scikit-learn.
+
+---
+
+## Model Configurations
+The following ANN architectures were tested:
+
+- (3,) → Single hidden layer with 3 neurons  
+- (5,) → Single hidden layer with 5 neurons  
+- (5,5) → Two hidden layers with 5 neurons each  
+
+---
 
 ## Methodology
+The project follows these steps:
+
 1. Load dataset  
-2. Split data  
-3. Apply scaling  
-4. Train models  
-5. Evaluate accuracy  
-6. Plot graphs  
+2. Split data into training and testing sets  
+3. Apply feature scaling using StandardScaler  
+4. Train ANN models with different configurations  
+5. Evaluate performance using accuracy  
+6. Visualise results using graphs  
 
-## Graphs
-1. Accuracy Comparison  
-2. Loss Curve  
-3. Model Comparison  
-4. Accuracy vs Complexity  
-5. Study Hours vs Pass/Fail  
+---
 
-## How to Run
-pip install pandas scikit-learn matplotlib  
-python ann_model.py  
-
-## Project Structure
-dataset/  
-code/  
-report/  
-README.md  
-
-## Author
-Massab Naeem
+## Code Example
+   model = MLPClassifier(hidden_layer_sizes=config, max_iter=500, random_state=42)
+    model.fit(X_train, y_train)
+    
+    y_pred = model.predict(X_test)
+    acc = accuracy_score(y_test, y_pred)
+    
+    print(f"Model {config} Accuracy: {acc:.4f}")
